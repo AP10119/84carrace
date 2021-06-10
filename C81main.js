@@ -55,39 +55,6 @@ function move(e){
         console.log("up is pressed")
         up();
     }
-}
-function right(){
-    if(car1x<500){
-    car1x=car1x+10;
-    upload()
-    uploadcar1();
-    }
-}
-function left(){
-    if(car1x>0){
-    car1x=car1x-10;
-    upload();
-    uploadcar1();
-    }
-}
-function up(){
-    if(car1y>0){
-    car1y=car1y-10
-    upload();
-    uploadcar1();
-    }
-}
-function down(){
-    if(car1y<400){
-    car1y=car1y+10
-    upload();
-    uploadcar1();
-    }
-}
-window.addEventListener("keydown",move2);
-function move2(e){
-    var code=e.keyCode;
-    console.log(code);
     if(code=="83"){
         console.log("down is pressed");
         down2();
@@ -104,12 +71,52 @@ function move2(e){
         console.log("up is pressed")
         up2();
     }
+    if(car1x>=500){
+        document.getElementById("status").innerHTML="car1 won"
+    }
+    else if(car2x>=500){
+        document.getElementById("status").innerHTML="car2 won"
+    }
 }
+function right(){
+    if(car1x<500){
+    car1x=car1x+10;
+    upload()
+    uploadcar1();
+    uploadcar2();
+    }
+}
+function left(){
+    if(car1x>0){
+    car1x=car1x-10;
+    upload();
+    uploadcar1();
+    uploadcar2();
+    }
+}
+function up(){
+    if(car1y>0){
+    car1y=car1y-10
+    upload();
+    uploadcar1();
+    uploadcar2();
+    }
+}
+function down(){
+    if(car1y<400){
+    car1y=car1y+10
+    upload();
+    uploadcar1();
+    uploadcar2();
+    }
+}
+
 function right2(){
     if(car2x<500){
     car2x=car2x+10;
     upload()
     uploadcar2();
+    uploadcar1();
     }
 }
 function left2(){
@@ -117,6 +124,7 @@ function left2(){
     car2x=car2x-10;
     upload();
     uploadcar2();
+    uploadcar1();
     }
 }
 function up2(){
@@ -124,6 +132,7 @@ function up2(){
     car2y=car2y-10
     upload();
     uploadcar2();
+    uploadcar1();
     }
 }
 function down2(){
@@ -131,5 +140,6 @@ function down2(){
     car2y=car2y+10
     upload();
     uploadcar2();
+    uploadcar1();
     }
 }
